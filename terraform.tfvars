@@ -7,7 +7,8 @@ vnet_name       = "lic-networking-vnet"
 address_spaces  = ["10.0.0.0/16"]
 
 # subnet
-subnet_name     = "AzureFirewallSubnet"
+# Note : the name of the Subnet for "ip_configuration.0.subnet_id" must be exactly 'AzureFirewallSubnet' to be used for the Azure Firewall resource
+subnet_name     = "AzureFirewallSubnet" 
 subnet_prefixes = ["10.0.1.0/24"]
 
 
