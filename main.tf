@@ -21,7 +21,7 @@ resource "azurerm_firewall" "firewall" {
   location            = var.virtual_network.location
   resource_group_name = var.virtual_network.resource_group_name
   ip_configuration {
-    name                 = module.naming.firewall_ip_configuration.name
+    name                 = module.naming.firewall_ip_configuration.name_unique
     subnet_id            = var.firewall_subnet_id
     public_ip_address_id = azurerm_public_ip.firewall_pip.id
   }
