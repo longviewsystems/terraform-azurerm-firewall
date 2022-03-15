@@ -1,51 +1,34 @@
-# Read in from environment variables
+#Required Variables
 
-variable "resource_group_name" {
+variable "virtual_network" {
+  type = object({
+    name                    = string
+    resource_group_name     = string
+    location                = string
+  })
+  description = "The Virtual Network in which the AzureFirewallSubnet exists within."
+}
+
+variable "firewall_subnet_id" {
   type        = string
-  description = "Resource group name for networking."
+  description = "The firewall subnet id"
 }
 
-variable "location" {
-  type        = string
-  description = "Location"
-}
-
-variable "tags" {
-  description = "Tags to apply to all resources created."
-  type        = map(string)
-}
-
-variable "vnet_name" {
-  type        = string
-  description = "name of the virtual network."
-  default     = ""
-}
-
-variable "subnet_name" {
-  type        = string
-  description = "name of the subnet."
-  default     = ""
-}
-
-variable "public_ip_name" {
-  type        = string
-  description = "name of the public Ip."
-  default     = ""
-}
-
-variable "firewall_name" {
-  type        = string
-  description = "name of the firewall name."
-  default     = ""
-}
-
-variable "address_spaces" {
+#Optional Variables
+variable "prefix" {
   type        = list(string)
-  description = "The address space that is used by the virtual network."
+  description = "A naming prefix to be used in the creation of unique names for Azure resources."
+  default     = []
 }
 
-
-variable "subnet_prefixes" {
-  description = "The address prefix to use for the subnet."
+variable "suffix" {
   type        = list(string)
+  description = "A naming suffix to be used in the creation of unique names for Azure resources."
+  default     = []
+}
+
+variable "public_ip_sku" {
+  type        = string
+  description = "The pricing and performance sku to create the Azure Firewalls public IP address to."
+  default     = "Standard"
 }
