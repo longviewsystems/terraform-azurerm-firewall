@@ -3,6 +3,10 @@ This solution creates a resource group, virtual network, public Ip and Firewall 
 
 # References:
 * [Azure Firewall](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall)
+* [Azure Firewall Networking rule collection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_network_rule_collection)
+* [Azure Firewall NAT rule collection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_nat_rule_collection)
+* [Azure Firewall Application rule collection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_application_rule_collection)
+* [Dynamic blocks](https://www.terraform.io/language/expressions/dynamic-blocks)
 
 # Notes
 Change variable values under /tf/terraform.tfvars file as needed. 
