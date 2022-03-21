@@ -2,9 +2,9 @@
 
 variable "virtual_network" {
   type = object({
-    name                    = string
-    resource_group_name     = string
-    location                = string
+    name                = string
+    resource_group_name = string
+    location            = string
   })
   description = "The Virtual Network in which the AzureFirewallSubnet exists within."
 }
@@ -81,13 +81,13 @@ variable "nat_rule_collections" {
     priority = number,
     action   = string,
     rules = list(object({
-      name                  = string,
-      source_addresses      = list(string),
-      source_ip_groups      = list(string),
-      destination_ports     = list(string),
-      translated_port       = number,
-      translated_address    = string,
-      protocols             = list(string)
+      name               = string,
+      source_addresses   = list(string),
+      source_ip_groups   = list(string),
+      destination_ports  = list(string),
+      translated_port    = number,
+      translated_address = string,
+      protocols          = list(string)
     }))
   }))
   default = null

@@ -1,9 +1,9 @@
 module "naming" {
   source  = "Azure/naming/azurerm"
   version = "0.1.1"
-  suffix = [ "networking" ]
-  prefix = [ "lic" ]
-  
+  suffix  = ["networking"]
+  prefix  = ["lic"]
+
   unique-include-numbers = false
   unique-length          = 4
 }
@@ -97,7 +97,7 @@ resource "azurerm_firewall_nat_rule_collection" "nat_rule_collection" {
       source_addresses      = rule.value.source_addresses
       source_ip_groups      = rule.value.source_ip_groups
       destination_ports     = rule.value.destination_ports
-      destination_addresses = [ azurerm_public_ip.firewall_pip.ip_address ]
+      destination_addresses = [azurerm_public_ip.firewall_pip.ip_address]
       translated_address    = rule.value.translated_address
       translated_port       = rule.value.translated_port
       protocols             = rule.value.protocols

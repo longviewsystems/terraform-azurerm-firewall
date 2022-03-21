@@ -3,83 +3,83 @@ module "networking" {
 }
 
 module "firewall" {
-    source                = "../../" # testing root module
-    virtual_network       = module.networking.virtual_network
-    firewall_subnet_id    = module.networking.firewall_subnet_id
-    public_ip_sku         = "Standard"
-    network_rule_collections = [
+  source             = "../../" # testing root module
+  virtual_network    = module.networking.virtual_network
+  firewall_subnet_id = module.networking.firewall_subnet_id
+  public_ip_sku      = "Standard"
+  network_rule_collections = [
     {
-        name     = "RuleCollection1"
-        priority = 100
-        action   = "Allow"
-        rules = [
+      name     = "RuleCollection1"
+      priority = 100
+      action   = "Allow"
+      rules = [
         {
-            name                  = "AllowRule1"
-            source_addresses      = ["10.10.1.0/24"]
-            destination_ports     = ["22"]
-            destination_addresses = ["10.10.2.0/24"]
-            protocols             = ["TCP"]
-            destination_fqdns     = null
-            destination_ip_groups = null
-            source_ip_groups      = null
+          name                  = "AllowRule1"
+          source_addresses      = ["10.10.1.0/24"]
+          destination_ports     = ["22"]
+          destination_addresses = ["10.10.2.0/24"]
+          protocols             = ["TCP"]
+          destination_fqdns     = null
+          destination_ip_groups = null
+          source_ip_groups      = null
         },
         {
-            name                  = "AllowRule2"
-            source_addresses      = ["10.10.1.0/24"]
-            destination_ports     = ["3389"]
-            destination_addresses = ["10.10.2.0/24"]
-            protocols             = ["TCP"]
-            destination_fqdns     = null
-            destination_ip_groups = null
-            source_ip_groups      = null
+          name                  = "AllowRule2"
+          source_addresses      = ["10.10.1.0/24"]
+          destination_ports     = ["3389"]
+          destination_addresses = ["10.10.2.0/24"]
+          protocols             = ["TCP"]
+          destination_fqdns     = null
+          destination_ip_groups = null
+          source_ip_groups      = null
         }
-        ]
+      ]
     }
-    ]
+  ]
 
 
-    application_rule_collections = [
+  application_rule_collections = [
     {
-        name     = "AppRuleCollection1"
-        priority = 101
-        action   = "Allow"
-        rules = [
+      name     = "AppRuleCollection1"
+      priority = 101
+      action   = "Allow"
+      rules = [
         {
-            name             = "AllowGoogle"
-            source_addresses = ["10.10.1.0/24", "10.10.2.0/24"]
-            target_fqdns     = ["*.google.com", "*.google.fr"]
-            source_ip_groups = null
-            protocols = [
+          name             = "AllowGoogle"
+          source_addresses = ["10.10.1.0/24", "10.10.2.0/24"]
+          target_fqdns     = ["*.google.com", "*.google.fr"]
+          source_ip_groups = null
+          protocols = [
             {
-                port = "443"
-                type = "Https"
+              port = "443"
+              type = "Https"
             },
             {
-                port = "80"
-                type = "Http"
+              port = "80"
+              type = "Http"
             }
-            ]
+          ]
         }
-        ]
+      ]
     }
-    ]
-      
-    nat_rule_collections = [
+  ]
+
+  nat_rule_collections = [
     {
-        name     = "NatRuleCollection1"
-        priority = 100
-        action   = "Dnat"
-        rules = [
+      name     = "NatRuleCollection1"
+      priority = 100
+      action   = "Dnat"
+      rules = [
         {
-            name                  = "RedirectWeb"
-            source_addresses      = ["10.0.0.0/16"]
-            destination_ports     = ["80"]
-            translated_port       = 53
-            translated_address    = "8.8.8.8"
-            protocols             = ["TCP", "UDP"]
-            source_ip_groups      = null
+          name               = "RedirectWeb"
+          source_addresses   = ["10.0.0.0/16"]
+          destination_ports  = ["80"]
+          translated_port    = 53
+          translated_address = "8.8.8.8"
+          protocols          = ["TCP", "UDP"]
+          source_ip_groups   = null
         }
-        ]
+      ]
     }
-    ]
+  ]
 }
