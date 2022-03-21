@@ -1,3 +1,9 @@
+# public Ip name
+firewall_pip_name = "test-pip"
+
+# firewall name
+firewall_name = "test-fw"
+# rule collections
 network_rule_collections = [
   {
     name     = "RuleCollection1"

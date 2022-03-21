@@ -14,6 +14,17 @@ variable "firewall_subnet_id" {
   description = "The firewall subnet id"
 }
 
+variable "firewall_pip_name" {
+  type        = string
+  description = "The public Ip name"
+}
+
+
+variable "firewall_name" {
+  type        = string
+  description = "The firewall name"
+}
+
 #Optional Variables
 variable "prefix" {
   type        = list(string)

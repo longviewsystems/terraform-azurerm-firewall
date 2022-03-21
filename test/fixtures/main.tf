@@ -2,11 +2,24 @@ module "networking" {
   source = "./resources"
 }
 
+module "naming" {
+  source  = "Azure/naming/azurerm"
+  version = "0.1.1"
+  suffix  = ["networking"]
+  prefix  = ["lic"]
+
+  unique-include-numbers = false
+  unique-length          = 4
+}
+
+
 module "firewall" {
   source             = "../../" # testing root module
-  virtual_network    = module.networking.virtual_network
+  firewall_name      = module.naming.firewall.name_unique
+  firewall_pip_name  = module.naming.public_ip.name_unique
   firewall_subnet_id = module.networking.firewall_subnet_id
   public_ip_sku      = "Standard"
+  virtual_network    = module.networking.virtual_network
   network_rule_collections = [
     {
       name     = "RuleCollection1"
