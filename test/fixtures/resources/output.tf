@@ -6,11 +6,11 @@ output "virtual_network" {
 }
 
 output "virtual_network_resource_group_name" {
-  value = azurerm_resource_group.resource_group.name
+  value       = azurerm_resource_group.resource_group.name
   description = "The name of the virtual network rg."
 }
 
 output "firewall_subnet_id" {
-  value = azurerm_subnet.subnet.id
+  value       = azurerm_subnet.subnet.id
   description = "The ID of the firewall subnet."
 }
