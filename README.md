@@ -57,9 +57,7 @@ $ make clean
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_naming"></a> [naming](#module\_naming) | Azure/naming/azurerm | 0.1.1 |
+No modules.
 
 ## Resources
 
@@ -76,6 +74,8 @@ $ make clean
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_application_rule_collections"></a> [application\_rule\_collections](#input\_application\_rule\_collections) | Create an application rule collection | <pre>list(object({<br>    name     = string,<br>    priority = number,<br>    action   = string,<br>    rules = list(object({<br>      name             = string,<br>      source_addresses = list(string),<br>      source_ip_groups = list(string),<br>      target_fqdns     = list(string),<br>      protocols = list(object({<br>        port = string,<br>        type = string<br>      }))<br>    }))<br>  }))</pre> | `null` | no |
+| <a name="input_firewall_name"></a> [firewall\_name](#input\_firewall\_name) | The firewall name | `string` | n/a | yes |
+| <a name="input_firewall_pip_name"></a> [firewall\_pip\_name](#input\_firewall\_pip\_name) | The public Ip name | `string` | n/a | yes |
 | <a name="input_firewall_subnet_id"></a> [firewall\_subnet\_id](#input\_firewall\_subnet\_id) | The firewall subnet id | `string` | n/a | yes |
 | <a name="input_nat_rule_collections"></a> [nat\_rule\_collections](#input\_nat\_rule\_collections) | Create a Nat rule collection | <pre>list(object({<br>    name     = string,<br>    priority = number,<br>    action   = string,<br>    rules = list(object({<br>      name               = string,<br>      source_addresses   = list(string),<br>      source_ip_groups   = list(string),<br>      destination_ports  = list(string),<br>      translated_port    = number,<br>      translated_address = string,<br>      protocols          = list(string)<br>    }))<br>  }))</pre> | `null` | no |
 | <a name="input_network_rule_collections"></a> [network\_rule\_collections](#input\_network\_rule\_collections) | Create a network rule collection | <pre>list(object({<br>    name     = string,<br>    priority = number,<br>    action   = string,<br>    rules = list(object({<br>      name                  = string,<br>      source_addresses      = list(string),<br>      source_ip_groups      = list(string),<br>      destination_ports     = list(string),<br>      destination_addresses = list(string),<br>      destination_ip_groups = list(string),<br>      destination_fqdns     = list(string),<br>      protocols             = list(string)<br>    }))<br>  }))</pre> | `null` | no |
