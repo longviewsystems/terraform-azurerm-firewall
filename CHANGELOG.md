@@ -1,3 +1,10 @@
+# 1.0.0 (2022-03-29)
+
+
+### Bug Fixes
+
+* version ([05ba6b4](https://github.com/longviewsystems/terraform-azurerm-firewall/commit/05ba6b44ccf2eb1807962044a4da50b03a2e7160))
+
 # [1.2.0](https://github.com/longviewsystems/terraform-azurerm-common-template/compare/1.1.2...1.2.0) (2022-01-14)
 
 
