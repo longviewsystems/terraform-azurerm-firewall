@@ -103,3 +103,4 @@ variable "nat_rule_collections" {
   }))
   default = null
 }
+
