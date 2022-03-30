@@ -1,15 +1,17 @@
 resource "azurerm_public_ip" "firewall_pip" {
   name                = var.firewall_pip_name
-  location            = var.virtual_network.location
-  resource_group_name = var.virtual_network.resource_group_name
+  location            = var.location
+  resource_group_name = var.resource_group_name
   allocation_method   = "Static"
   sku                 = var.public_ip_sku
 }
 
 resource "azurerm_firewall" "firewall" {
   name                = var.firewall_name
-  location            = var.virtual_network.location
-  resource_group_name = var.virtual_network.resource_group_name
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  sku_name            = var.sku_name
+  sku_tier            = var.sku_tier
   ip_configuration {
     name                 = "${var.firewall_name}-ipconfig"
     subnet_id            = var.firewall_subnet_id
@@ -23,7 +25,7 @@ resource "azurerm_firewall_network_rule_collection" "network_rule_collection" {
 
   name                = each.key
   azure_firewall_name = azurerm_firewall.firewall.name
-  resource_group_name = var.virtual_network.resource_group_name
+  resource_group_name = var.resource_group_name
   priority            = each.value.priority
   action              = each.value.action
 
@@ -48,7 +50,7 @@ resource "azurerm_firewall_application_rule_collection" "application_rule_collec
 
   name                = each.key
   azure_firewall_name = azurerm_firewall.firewall.name
-  resource_group_name = var.virtual_network.resource_group_name
+  resource_group_name = var.resource_group_name
   priority            = each.value.priority
   action              = each.value.action
 
@@ -76,7 +78,7 @@ resource "azurerm_firewall_nat_rule_collection" "nat_rule_collection" {
 
   name                = each.key
   azure_firewall_name = azurerm_firewall.firewall.name
-  resource_group_name = var.virtual_network.resource_group_name
+  resource_group_name = var.resource_group_name
   priority            = each.value.priority
   action              = each.value.action
   dynamic "rule" {

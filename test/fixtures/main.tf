@@ -14,12 +14,15 @@ module "naming" {
 
 
 module "firewall" {
-  source             = "../../" # testing root module
-  firewall_name      = module.naming.firewall.name_unique
-  firewall_pip_name  = module.naming.public_ip.name_unique
-  firewall_subnet_id = module.networking.firewall_subnet_id
-  public_ip_sku      = "Standard"
-  virtual_network    = module.networking.virtual_network
+  source              = "../../" # testing root module
+  firewall_name       = module.naming.firewall.name_unique
+  firewall_pip_name   = module.naming.public_ip.name_unique
+  firewall_subnet_id  = module.networking.firewall_subnet_id
+  location            = module.networking.virtual_network_resource_group_location
+  public_ip_sku       = "Standard"
+  resource_group_name = module.networking.virtual_network_resource_group_name
+  sku_name            = "AZFW_VNet"
+  sku_tier            = "Standard"
   network_rule_collections = [
     {
       name     = "RuleCollection1"
