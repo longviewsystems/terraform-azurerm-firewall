@@ -1,12 +1,13 @@
 #Required Variables
 
-variable "virtual_network" {
-  type = object({
-    name                = string
-    resource_group_name = string
-    location            = string
-  })
-  description = "The Virtual Network in which the AzureFirewallSubnet exists within."
+variable "location" {
+  type        = string
+  description = "The Location where RG is created"
+}
+
+variable "resource_group_name" {
+  type        = string
+  description = "The name of the Resource group"
 }
 
 variable "firewall_subnet_id" {
@@ -19,10 +20,19 @@ variable "firewall_pip_name" {
   description = "The public Ip name"
 }
 
-
 variable "firewall_name" {
   type        = string
   description = "The firewall name"
+}
+
+variable "sku_name" {
+  type        = string
+  description = "Sku name of the Firewall"
+}
+
+variable "sku_tier" {
+  type        = string
+  description = "Sku tier of the Firewall"
 }
 
 #Optional Variables
