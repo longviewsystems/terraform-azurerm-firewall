@@ -1,5 +1,4 @@
 #Required Variables
-
 variable "location" {
   type        = string
   description = "The Location where RG is created"
@@ -93,7 +92,6 @@ variable "application_rule_collections" {
   }))
   default = null
 }
-
 
 variable "nat_rule_collections" {
   description = "Create a Nat rule collection"
