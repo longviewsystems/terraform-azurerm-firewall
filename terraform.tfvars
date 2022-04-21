@@ -3,8 +3,8 @@ firewall_pip_name = "test-pip"
 # firewall name
 firewall_name = "test-fw"
 # firewall Sku's
-sku_name      = "AZFW_VNet"
-sku_tier      = "Standard"
+sku_name = "AZFW_VNet"
+sku_tier = "Standard"
 # rule collections
 network_rule_collections = [
   {

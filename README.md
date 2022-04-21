@@ -47,13 +47,13 @@ $ make clean
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 2.98.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 2.88.1, < 3.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 2.99.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 2.88.1, < 3.0.0 |
 
 ## Modules
 
@@ -77,12 +77,15 @@ No modules.
 | <a name="input_firewall_name"></a> [firewall\_name](#input\_firewall\_name) | The firewall name | `string` | n/a | yes |
 | <a name="input_firewall_pip_name"></a> [firewall\_pip\_name](#input\_firewall\_pip\_name) | The public Ip name | `string` | n/a | yes |
 | <a name="input_firewall_subnet_id"></a> [firewall\_subnet\_id](#input\_firewall\_subnet\_id) | The firewall subnet id | `string` | n/a | yes |
+| <a name="input_location"></a> [location](#input\_location) | The Location where RG is created | `string` | n/a | yes |
 | <a name="input_nat_rule_collections"></a> [nat\_rule\_collections](#input\_nat\_rule\_collections) | Create a Nat rule collection | <pre>list(object({<br>    name     = string,<br>    priority = number,<br>    action   = string,<br>    rules = list(object({<br>      name               = string,<br>      source_addresses   = list(string),<br>      source_ip_groups   = list(string),<br>      destination_ports  = list(string),<br>      translated_port    = number,<br>      translated_address = string,<br>      protocols          = list(string)<br>    }))<br>  }))</pre> | `null` | no |
 | <a name="input_network_rule_collections"></a> [network\_rule\_collections](#input\_network\_rule\_collections) | Create a network rule collection | <pre>list(object({<br>    name     = string,<br>    priority = number,<br>    action   = string,<br>    rules = list(object({<br>      name                  = string,<br>      source_addresses      = list(string),<br>      source_ip_groups      = list(string),<br>      destination_ports     = list(string),<br>      destination_addresses = list(string),<br>      destination_ip_groups = list(string),<br>      destination_fqdns     = list(string),<br>      protocols             = list(string)<br>    }))<br>  }))</pre> | `null` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | A naming prefix to be used in the creation of unique names for Azure resources. | `list(string)` | `[]` | no |
 | <a name="input_public_ip_sku"></a> [public\_ip\_sku](#input\_public\_ip\_sku) | The pricing and performance sku to create the Azure Firewalls public IP address to. | `string` | `"Standard"` | no |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the Resource group | `string` | n/a | yes |
+| <a name="input_sku_name"></a> [sku\_name](#input\_sku\_name) | Sku name of the Firewall | `string` | n/a | yes |
+| <a name="input_sku_tier"></a> [sku\_tier](#input\_sku\_tier) | Sku tier of the Firewall | `string` | n/a | yes |
 | <a name="input_suffix"></a> [suffix](#input\_suffix) | A naming suffix to be used in the creation of unique names for Azure resources. | `list(string)` | `[]` | no |
-| <a name="input_virtual_network"></a> [virtual\_network](#input\_virtual\_network) | The Virtual Network in which the AzureFirewallSubnet exists within. | <pre>object({<br>    name                = string<br>    resource_group_name = string<br>    location            = string<br>  })</pre> | n/a | yes |
 
 ## Outputs
 
