@@ -1,3 +1,5 @@
+## [1.0.2](https://github.com/longviewsystems/terraform-azurerm-firewall/compare/1.0.1...1.0.2) (2022-05-25)
+
 ## [1.0.1](https://github.com/longviewsystems/terraform-azurerm-firewall/compare/1.0.0...1.0.1) (2022-03-30)
 
 # 1.0.0 (2022-03-29)
