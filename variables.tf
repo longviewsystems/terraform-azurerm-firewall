@@ -47,12 +47,6 @@ variable "suffix" {
   default     = []
 }
 
-variable "public_ip_sku" {
-  type        = string
-  description = "The pricing and performance sku to create the Azure Firewalls public IP address to."
-  default     = "Standard"
-}
-
 variable "network_rule_collections" {
   description = "Create a network rule collection"
   type = list(object({
@@ -71,6 +65,12 @@ variable "network_rule_collections" {
     }))
   }))
   default = null
+}
+
+variable "public_ip_sku" {
+  type        = string
+  description = "The pricing and performance sku to create the Azure Firewalls public IP address to."
+  default     = "Standard"
 }
 
 variable "application_rule_collections" {
