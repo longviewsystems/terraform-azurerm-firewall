@@ -4,6 +4,7 @@ resource "azurerm_public_ip" "firewall_pip" {
   resource_group_name = var.resource_group_name
   allocation_method   = "Static"
   sku                 = var.public_ip_sku
+  tags                = var.tags
 }
 
 resource "azurerm_firewall" "firewall" {
@@ -12,6 +13,7 @@ resource "azurerm_firewall" "firewall" {
   resource_group_name = var.resource_group_name
   sku_name            = var.sku_name
   sku_tier            = var.sku_tier
+  tags                = var.tags
   ip_configuration {
     name                 = "${var.firewall_name}-ipconfig"
     subnet_id            = var.firewall_subnet_id

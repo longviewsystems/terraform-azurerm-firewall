@@ -9,6 +9,22 @@ variable "resource_group_name" {
   description = "The name of the Resource group"
 }
 
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {
+    Application    = "TBD"
+    BusinessUnit   = "TBD"
+    CostCenter     = "TBD"
+    DR             = "TBD"
+    Environment    = "TBD"
+    Owner          = "TBD"
+    ServiceClass   = "TBD"
+    ManagedBy      = "TBD"
+    SupportContact = "TBD"
+  }
+}
+
 variable "firewall_subnet_id" {
   type        = string
   description = "The firewall subnet id"
