@@ -1,4 +1,3 @@
-resource_group_name = "test-fw-rg"
 # public Ip name
 firewall_pip_name = "test-pip"
 # firewall name
