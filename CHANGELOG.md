@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/longviewsystems/terraform-azurerm-firewall/compare/1.1.0...1.2.0) (2023-01-17)
+
+
+### Features
+
+* **azboard-72256:** Upgrade provider version to v3 ([da8a0ec](https://github.com/longviewsystems/terraform-azurerm-firewall/commit/da8a0ecd6d90744ddcc8c79beccfa9a23fe7e587))
+
 # [1.1.0](https://github.com/longviewsystems/terraform-azurerm-firewall/compare/1.0.2...1.1.0) (2022-08-26)
 
 
