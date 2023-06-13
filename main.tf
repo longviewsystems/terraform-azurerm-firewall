@@ -3,6 +3,7 @@ resource "azurerm_public_ip" "firewall_pip" {
   location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = "Static"
+  availability_zone   = "No-Zone"
   sku                 = var.public_ip_sku
   tags                = var.tags
 }
@@ -18,7 +19,6 @@ resource "azurerm_firewall" "firewall" {
     name                 = "${var.firewall_name}-ipconfig"
     subnet_id            = var.firewall_subnet_id
     public_ip_address_id = azurerm_public_ip.firewall_pip.id
-    availability_zone   = "No-Zone"
   }
 }
 
