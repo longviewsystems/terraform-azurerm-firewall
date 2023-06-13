@@ -23,6 +23,7 @@ module "firewall" {
   resource_group_name = module.networking.virtual_network_resource_group_name
   sku_name            = "AZFW_VNet"
   sku_tier            = "Standard"
+  availability_zone   = "No-Zone"
   network_rule_collections = [
     {
       name     = "RuleCollection1"
