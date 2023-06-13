@@ -18,6 +18,7 @@ resource "azurerm_firewall" "firewall" {
     name                 = "${var.firewall_name}-ipconfig"
     subnet_id            = var.firewall_subnet_id
     public_ip_address_id = azurerm_public_ip.firewall_pip.id
+    availability_zone   = "No-Zone"
   }
 }
 
