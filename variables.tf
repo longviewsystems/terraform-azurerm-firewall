@@ -50,6 +50,11 @@ variable "sku_tier" {
   description = "Sku tier of the Firewall"
 }
 
+variable "availability_zone" {
+  type        = string
+  description = "Availability zone of the Firewall"
+}
+
 #Optional Variables
 variable "prefix" {
   type        = list(string)
