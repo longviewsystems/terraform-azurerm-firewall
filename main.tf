@@ -15,6 +15,7 @@ resource "azurerm_firewall" "firewall" {
   sku_name            = var.sku_name
   sku_tier            = var.sku_tier
   tags                = var.tags
+  firewall_policy_id  = "fwPolicy"
   ip_configuration {
     name                 = "${var.firewall_name}-ipconfig"
     subnet_id            = var.firewall_subnet_id
@@ -99,10 +100,3 @@ resource "azurerm_firewall_nat_rule_collection" "nat_rule_collection" {
   }
 }
 
-# Attaches Firewall Policy to Firewall
-resource "azurerm_firewall_policy_association" "firewall_policy_association" {
-  name                = "firewall-policy-association"
-  resource_group_name = var.resource_group_name
-  firewall_name       = azurerm_firewall.firewall.name
-  firewall_policy_id  = var.firewall_policy_id
-}
