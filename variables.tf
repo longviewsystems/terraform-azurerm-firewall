@@ -35,11 +35,6 @@ variable "firewall_pip_name" {
   description = "The public Ip name"
 }
 
-variable "firewall_policy_id" {
-  type        = string
-  description = "The firewall policy id"
-}
-
 variable "firewall_name" {
   type        = string
   description = "The firewall name"

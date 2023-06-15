@@ -15,7 +15,6 @@ resource "azurerm_firewall" "firewall" {
   sku_name            = var.sku_name
   sku_tier            = var.sku_tier
   tags                = var.tags
-  firewall_policy_id  = var.firewall_policy_id
   ip_configuration {
     name                 = "${var.firewall_name}-ipconfig"
     subnet_id            = var.firewall_subnet_id
