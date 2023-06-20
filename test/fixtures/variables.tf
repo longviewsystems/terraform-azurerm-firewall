@@ -12,8 +12,3 @@ variable "tags" {
     managed_by  = "terratest"
   }
 }
-
-variable "firewall_policy_id" {
-  type        = string
-  description = "The ID of Firewall policy to associate with the Firewall"
-}
