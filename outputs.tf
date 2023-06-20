@@ -7,3 +7,7 @@ output "firewall" {
   value       = azurerm_firewall.firewall
   description = "The ID of the Azure Firewall."
 }
+
+# output "firewall_policy_id" {
+#   value = azurerm_firewall.firewall.id
+# }

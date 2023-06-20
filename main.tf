@@ -8,13 +8,19 @@ resource "azurerm_public_ip" "firewall_pip" {
   tags                = var.tags
 }
 
+resource "azurerm_firewall_policy" "fw_policy" {
+  name                = "test-fw-policy"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+}
+
 resource "azurerm_firewall" "firewall" {
   name                = var.firewall_name
   location            = var.location
   resource_group_name = var.resource_group_name
   sku_name            = var.sku_name
   sku_tier            = var.sku_tier
-  firewall_policy_id  = var.firewall_policy_id
+  firewall_policy_id  = azurerm_firewall_policy.fw_policy.id
   tags                = var.tags
   
   ip_configuration {
