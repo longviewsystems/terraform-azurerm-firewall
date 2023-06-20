@@ -3,6 +3,7 @@ resource "azurerm_public_ip" "firewall_pip" {
   location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = "Static"
+  availability_zone   = "No-Zone"
   sku                 = var.public_ip_sku
   tags                = var.tags
 }
@@ -13,12 +14,20 @@ resource "azurerm_firewall" "firewall" {
   resource_group_name = var.resource_group_name
   sku_name            = var.sku_name
   sku_tier            = var.sku_tier
+  firewall_policy_id  = azurerm_firewall_policy.fw_policy.id
   tags                = var.tags
+  
   ip_configuration {
     name                 = "${var.firewall_name}-ipconfig"
     subnet_id            = var.firewall_subnet_id
     public_ip_address_id = azurerm_public_ip.firewall_pip.id
   }
+}
+
+resource "azurerm_firewall_policy" "fw_policy" {
+  name                = "test-fw-policy"
+  location            = var.location
+  resource_group_name = var.resource_group_name
 }
 
 # Add firewall network rule collection
@@ -97,3 +106,4 @@ resource "azurerm_firewall_nat_rule_collection" "nat_rule_collection" {
     }
   }
 }
+

@@ -40,6 +40,7 @@ variable "firewall_name" {
   description = "The firewall name"
 }
 
+
 variable "sku_name" {
   type        = string
   description = "Sku name of the Firewall"
@@ -48,6 +49,11 @@ variable "sku_name" {
 variable "sku_tier" {
   type        = string
   description = "Sku tier of the Firewall"
+}
+
+variable "availability_zone" {
+  type        = string
+  description = "Availability zone of the Firewall"
 }
 
 #Optional Variables
