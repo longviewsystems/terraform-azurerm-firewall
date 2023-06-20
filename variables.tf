@@ -40,10 +40,6 @@ variable "firewall_name" {
   description = "The firewall name"
 }
 
-variable "firewall_policy_id" {
-  type        = string
-  description = "The firewall policy id"
-}
 
 variable "sku_name" {
   type        = string
