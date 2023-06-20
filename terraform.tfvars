@@ -1,5 +1,7 @@
 # public Ip name
 firewall_pip_name = "test-pip"
+# firewall policy id
+firewall_policy_id = "fw-policy"
 # firewall name
 firewall_name = "test-fw"
 # firewall Sku's
