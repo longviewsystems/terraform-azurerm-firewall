@@ -24,7 +24,7 @@ module "firewall" {
   resource_group_name = module.networking.virtual_network_resource_group_name
   sku_name            = "AZFW_VNet"
   sku_tier            = "Standard"
-  firewall_policy_id  = var.firewall_policy_id
+  firewall_policy_id  = module.networking.firewall_policy_id
 
 
   network_rule_collections = [
