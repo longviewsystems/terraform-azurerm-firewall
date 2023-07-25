@@ -5,6 +5,7 @@ terraform {
       source  = "hashicorp/azurerm"
       version = ">=3.0.0, <4.0.0"
     }
+    
     # random = {
     #   source  = "hashicorp/random"
     #   version = ">= 2.88.1, < 3.0.0"
@@ -12,9 +13,6 @@ terraform {
   }
 }
 
-provider "azurerm" {
-  features {}
-}
 
 # provider "azurerm" {
 # features {}
